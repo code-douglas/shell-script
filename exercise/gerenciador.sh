@@ -36,16 +36,17 @@ while [ $opcao -ne 5 ]; do
                 fi
             done
 
-            echo $conteudoArquivo > $nomeArquivo
+            echo "$conteudoArquivo" > "$nomeArquivo"
             echo "Arquivo '$nomeArquivo' criado com sucesso."
-            ;;
-
+        ;;
         2)
             while true; do
                 read -p "Digite o nome do arquivo/diretorio do arquivo que gostaria de ler. " leituraArquivo
 
                 if [ ! -s "$leituraArquivo" ]; then
-                    echo "O arquivo selecionado está vazio ou não existe"
+                    echo "O arquivo selecionado não existe"
+                elif [ ! -s "$leituraArquivo" ]; then
+                    echo "O arquivo existe, mas está vazio."
                 else 
                     while read linha; do
                         echo "Linha: $linha"
@@ -53,6 +54,35 @@ while [ $opcao -ne 5 ]; do
                     break
                 fi
             done
+        ;;
+        3)
+            while true; do
+                read -p "Digite o nome ou diretorio que você gostaria de verificar. " verificacaoDirArquivo
+
+                if [ ! -e "$verificacaoDirArquivo" ]; then
+                    echo "Não existe"
+                elif [ ! -s "$verificacaoDirArquivo" ]; then
+                    echo "Existe, mas está vazio."
+                else
+                    echo "Existe e possui conteudo."
+                fi
+                break
+            done
+        ;;
+        4)
+            read -p "Digite o caminho: " caminho
+
+            for item in "$caminho"/*; do
+                if [ -d "$item" ]; then
+                    echo "$(basename "$item")"
+                fi
+            done
+        ;;
+        5)
+            echo "Saindo..."
+        ;;
+        *)
+            echo "Opção selecionada é invalida."
         ;;
     esac
 done
