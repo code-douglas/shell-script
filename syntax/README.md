@@ -57,3 +57,17 @@ while [ $contador -le $imprimir ]; do
     contador=$((contador + 1))
 done
 ```
+
+| Variável | Significado                                       |
+| -------- | ------------------------------------------------- |
+| `$0`     | Nome do script (com o caminho se houver).         |
+| `$1`     | Primeiro argumento.                               |
+| `$2`     | Segundo argumento.                                |
+| `$3`     | Terceiro argumento.                               |
+| `...`    | Continua assim até o número máximo de argumentos. |
+| `$#`     | Número total de argumentos passados (contagem).   |
+| `$@`     | Todos os argumentos como **lista**.               |
+| `$*`     | Todos os argumentos como **único texto**.         |
+| `$$`     | PID (Process ID) do script.                       |
+| `$?`     | Código de saída do último comando executado.      |
+| `$!`     | PID do último processo em segundo plano.          |
