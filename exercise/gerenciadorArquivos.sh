@@ -1,7 +1,6 @@
 #! /bin/bash
 
 # Functions
-
 criar_arquivo() {
     echo "[Opção 1] - Criar arquivos"
 
