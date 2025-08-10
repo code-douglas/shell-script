@@ -43,7 +43,7 @@ while [ $opcao -ne 5 ]; do
             while true; do
                 read -p "Digite o nome do arquivo/diretorio do arquivo que gostaria de ler. " leituraArquivo
 
-                if [ ! -s "$leituraArquivo" ]; then
+                if [ ! -e "$leituraArquivo" ]; then
                     echo "O arquivo selecionado não existe"
                 elif [ ! -s "$leituraArquivo" ]; then
                     echo "O arquivo existe, mas está vazio."
